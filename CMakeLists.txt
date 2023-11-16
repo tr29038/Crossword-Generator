@@ -1,16 +1,15 @@
 cmake_minimum_required(VERSION 3.22)
-project(crossword_constructor VERSION 1.0)
+project(crossword_generator VERSION 1.0)
 
-include_directories(crossword_constructor ${CMAKE_CURRENT_SOURCE_DIR}/src)
+include_directories(crossword_generator ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
-add_executable(crossword_constructor
+add_executable(crossword_generator
     main.cpp
     src/crossword_utils.h
     src/crossword_utils.cpp
     src/crossword_constructor.h
     src/crossword_entry.h
     src/crossword_entry.cpp
-    src/crossword_word_entry.h
     src/mrv_heuristic.h
     src/mrv_heuristic.cpp
     src/lcv_heuristic.h
