@@ -57,7 +57,10 @@ bool Crossword_Constructor::construct_via_backtracking(
     std::vector<char> directions)
 {
     if (Crossword_Utils::is_full(solution))
+    {
+        Crossword_Utils::print(std::cout, solution);
         return true;
+    }
 
     auto entry = entries[entry_index];
     int y = entry.y, x = entry.x;
@@ -97,8 +100,6 @@ bool Crossword_Constructor::construct_via_backtracking(
                 ++y;
         }
 
-        Crossword_Utils::print(std::cout, solution);
-
         if (finished_word)
         {
             if (construct_via_backtracking(solution, entry_index, directions))
@@ -126,7 +127,10 @@ bool Crossword_Constructor::construct_via_backtracking(
 bool Crossword_Constructor::construct_via_mrv(std::vector<std::vector<char>> solution)
 {
     if (Crossword_Utils::is_full(solution))
+    {
+        Crossword_Utils::print(std::cout, solution);
         return true;
+    }
 
     auto [entry_index, direction] = MRV_Heuristic::perform(solution, entries, constrained_words);
     auto entry = entries[entry_index];
@@ -157,8 +161,6 @@ bool Crossword_Constructor::construct_via_mrv(std::vector<std::vector<char>> sol
                 ++y;
         }
 
-        Crossword_Utils::print(std::cout, solution);
-
         if (finished_word)
         {
             if (construct_via_mrv(solution))
@@ -186,7 +188,10 @@ bool Crossword_Constructor::construct_via_mrv(std::vector<std::vector<char>> sol
 bool Crossword_Constructor::construct_via_lcv(std::vector<std::vector<char>> solution, std::unordered_map<int, Constraints>& constraints)
 {
     if (Crossword_Utils::is_full(solution))
+    {
+        Crossword_Utils::print(std::cout, solution);
         return true;
+    }
 
     auto [entry_index, direction] = LCV_Heuristic::perform(solution, entries, constrained_words, constraints);
     auto entry = entries[entry_index];
@@ -217,8 +222,6 @@ bool Crossword_Constructor::construct_via_lcv(std::vector<std::vector<char>> sol
                 ++y;
         }
 
-        Crossword_Utils::print(std::cout, solution);
-
         if (finished_word)
         {
             if (construct_via_lcv(solution, constraints))
@@ -246,7 +249,10 @@ bool Crossword_Constructor::construct_via_lcv(std::vector<std::vector<char>> sol
 bool Crossword_Constructor::construct_via_mrv_and_fc(std::vector<std::vector<char>> solution, Forward_Checking_Data& checked_words)
 {
     if (Crossword_Utils::is_full(solution))
+    {
+        Crossword_Utils::print(std::cout, solution);
         return true;
+    }
 
     auto [entry_index, direction] = MRV_Heuristic::perform(solution, entries, constrained_words);
     auto entry = entries[entry_index];
@@ -279,8 +285,6 @@ bool Crossword_Constructor::construct_via_mrv_and_fc(std::vector<std::vector<cha
             else
                 ++y;
         }
-
-        Crossword_Utils::print(std::cout, solution);
 
         if (finished_word)
         {
