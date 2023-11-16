@@ -30,3 +30,11 @@ For a list of options, run the command:
 ```
 ./crossword_generator
 ```
+
+# Creating a Custom Puzzle
+To run the executable with a custom puzzle, follow the below steps:
+1. Create a directory and name it anything you like.
+2. Add a `dictionary.txt` file to the directory.
+3. Populate `dictionary.txt` with all eligible words (either consistently in lowercase or uppercase), where each word is delimited by a newline.
+4. Add a `puzzle.txt` file to the directory.
+5. Populate `puzzle.txt` with the puzzle structure. Mark all word entry starting positions with its corresponding number like so: `[#]`.
